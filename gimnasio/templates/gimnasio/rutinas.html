@@ -1,0 +1,34 @@
+{% extends 'gimnasio/base.html' %}
+
+{% block title %}Rutinas - GymProject{% endblock %}
+
+{% block content %}
+<h1>Rutinas Semanales</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Día</th>
+            <th>Grupo muscular</th>
+            <th>Nivel</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in rutinas %}
+            <tr>
+                <td>{{ r.dia }}</td>
+                <td>{{ r.grupo }}</td>
+                <td>
+                    {% if r.nivel == 'Básico' %}
+                        {{ r.nivel }}
+                    {% elif r.nivel == 'Intermedio' %}
+                        {{ r.nivel }}
+                    {% else %}
+                        {{ r.nivel }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GymProject{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'gimnasio/styles.css' %}">
+</head>
+<body>
+    <nav>
+        <a class="brand" href="{% url 'home' %}">GymProject</a>
+        <a href="{% url 'home' %}">Inicio</a>
+        <a href="{% url 'rutinas' %}">Rutinas</a>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>2025 GymProject. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

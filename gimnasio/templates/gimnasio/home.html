@@ -1,0 +1,20 @@
+{% extends 'gimnasio/base.html' %}
+
+{% block title %}Inicio - GymProject{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Bienvenido a GymProject</h1>
+    <p>Tu gimnasio de confianza. Encontrá las mejores rutinas para alcanzar tus objetivos.</p>
+    <span class="badge">🏃 {{ total_socios }} socios activos</span>
+    <br>
+    <a class="btn" href="{% url 'rutinas' %}">Ver rutinas →</a>
+</div>
+
+<h2>¿Por qué elegirnos?</h2>
+<div class="beneficios">
+    {% for b in beneficios %}
+        <div class="beneficio-card">{{ b }}</div>
+    {% endfor %}
+</div>
+{% endblock %}
