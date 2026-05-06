@@ -1,0 +1,23 @@
+{% extends 'gimnasio/base.html' %}
+
+{% block title %}Eliminar Membresía{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Eliminar Membresía</h1>
+    
+    <div class="alert alert-warning">
+        <p>¿Está seguro que desea eliminar la membresía <strong>{{ membresia.get_tipo_display }}</strong>?</p>
+        <p>Precio: ${{ membresia.precio }}</p>
+        <p>Duración: {{ membresia.duracion_meses }} meses</p>
+        <p>Beneficios:</p>
+        <p>{{ membresia.beneficios|linebreaks }}</p>
+    </div>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
+        <a href="{% url 'lista_membresias' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

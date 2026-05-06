@@ -1,0 +1,75 @@
+{% extends 'gimnasio/base.html' %}
+
+{% block title %}{{ titulo }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ titulo }}</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="{{ form.tipo.id_for_label }}" class="form-label">Tipo de Membresía:</label>
+            {{ form.tipo }}
+            {% if form.tipo.errors %}
+                <div class="text-danger">
+                    {{ form.tipo.errors }}
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="mb-3">
+            <label for="{{ form.precio.id_for_label }}" class="form-label">Precio:</label>
+            {{ form.precio }}
+            {% if form.precio.errors %}
+                <div class="text-danger">
+                    {{ form.precio.errors }}
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="mb-3">
+            <label for="{{ form.duracion_meses.id_for_label }}" class="form-label">Duración (meses):</label>
+            {{ form.duracion_meses }}
+            {% if form.duracion_meses.errors %}
+                <div class="text-danger">
+                    {{ form.duracion_meses.errors }}
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="mb-3">
+            <label for="{{ form.beneficios.id_for_label }}" class="form-label">Beneficios:</label>
+            {{ form.beneficios }}
+            {% if form.beneficios.errors %}
+                <div class="text-danger">
+                    {{ form.beneficios.errors }}
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'lista_membresias' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+</style>
+{% endblock %}

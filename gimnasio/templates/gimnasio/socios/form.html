@@ -1,0 +1,74 @@
+{% extends 'gimnasio/base.html' %}
+
+{% block title %}{{ titulo }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ titulo }}</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="{{ form.nombre.id_for_label }}" class="form-label">Nombre:</label>
+            {{ form.nombre }}
+            {% if form.nombre.errors %}
+                <div class="text-danger">
+                    {{ form.nombre.errors }}
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="mb-3">
+            <label for="{{ form.email.id_for_label }}" class="form-label">Email:</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <div class="text-danger">
+                    {{ form.email.errors }}
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="mb-3">
+            <label for="{{ form.membresia.id_for_label }}" class="form-label">Membresía:</label>
+            {{ form.membresia }}
+            {% if form.membresia.errors %}
+                <div class="text-danger">
+                    {{ form.membresia.errors }}
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="mb-3">
+            <label for="{{ form.activo.id_for_label }}" class="form-label">
+                {{ form.activo }} Activo
+            </label>
+            {% if form.activo.errors %}
+                <div class="text-danger">
+                    {{ form.activo.errors }}
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'lista_socios' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    input[type="text"],
+    input[type="email"],
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    input[type="checkbox"] {
+        margin-right: 8px;
+    }
+</style>
+{% endblock %}

@@ -21,8 +21,6 @@ def rutinas(request):
     ]
     return render(request, 'gimnasio/rutinas.html', {'rutinas': rutinas})
 
-
-# CRUD para Socios
 def lista_socios(request):
     socios = Socio.objects.all()
     return render(request, 'gimnasio/socios/lista.html', {'socios': socios})
@@ -59,7 +57,6 @@ def eliminar_socio(request, pk):
     return render(request, 'gimnasio/socios/confirmar_eliminar.html', {'socio': socio})
 
 
-# CRUD para Membresías
 def lista_membresias(request):
     membresias = Membresia.objects.all()
     return render(request, 'gimnasio/membresias/lista.html', {'membresias': membresias})

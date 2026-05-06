@@ -1,0 +1,23 @@
+{% extends 'gimnasio/base.html' %}
+
+{% block title %}Eliminar Socio{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Eliminar Socio</h1>
+    
+    <div class="alert alert-warning">
+        <p>¿Está seguro que desea eliminar al socio <strong>{{ socio.nombre }}</strong>?</p>
+        <p>Email: {{ socio.email }}</p>
+        {% if socio.membresia %}
+            <p>Membresía: {{ socio.membresia }}</p>
+        {% endif %}
+    </div>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
+        <a href="{% url 'lista_socios' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

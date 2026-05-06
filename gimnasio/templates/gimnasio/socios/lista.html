@@ -1,0 +1,49 @@
+{% extends 'gimnasio/base.html' %}
+
+{% block title %}Lista de Socios{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Lista de Socios</h1>
+    
+    <div class="mb-3">
+        <a href="{% url 'crear_socio' %}" class="btn btn-primary">Nuevo Socio</a>
+    </div>
+    
+    {% if socios %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Membresía</th>
+                    <th>Activo</th>
+                    <th>Fecha de Inscripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for socio in socios %}
+                <tr>
+                    <td>{{ socio.nombre }}</td>
+                    <td>{{ socio.email }}</td>
+                    <td>{{ socio.membresia|default:"Sin membresía" }}</td>
+                    <td>
+                        <span class="badge {% if socio.activo %}bg-success{% else %}bg-danger{% endif %}">
+                            {% if socio.activo %}Activo{% else %}Inactivo{% endif %}
+                        </span>
+                    </td>
+                    <td>{{ socio.fecha_inscripcion }}</td>
+                    <td>
+                        <a href="{% url 'editar_socio' socio.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{% url 'eliminar_socio' socio.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay socios registrados.</p>
+    {% endif %}
+</div>
+{% endblock %}
