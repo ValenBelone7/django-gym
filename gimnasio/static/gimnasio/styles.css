@@ -120,3 +120,106 @@ tr:last-child td { border-bottom: none; }
 tr:hover td { background: #fafafa; }
 
 h1 { margin-bottom: 30px; font-size: 2em; }
+
+/* Auth forms */
+.auth-card {
+    max-width: 420px;
+    margin: 40px auto;
+    background: white;
+    padding: 36px 32px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.auth-card h2 {
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 1.6em;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #f0a500;
+    box-shadow: 0 0 0 3px rgba(240, 165, 0, 0.15);
+}
+
+.field-error {
+    color: #d32f2f;
+    font-size: 0.85em;
+    margin-top: 4px;
+}
+
+.help-text {
+    display: block;
+    color: #888;
+    font-size: 0.8em;
+    margin-top: 4px;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.95em;
+    color: #666;
+}
+
+.auth-link a {
+    color: #f0a500;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+.auth-card .btn {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* Greeting */
+.greeting {
+    color: #f0a500;
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+nav button {
+    background: none;
+    border: 1px solid #f0a500;
+    color: #ccc;    
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.2s;
+}
+
+nav button:hover {
+    border-color: #f0a500;
+    color: #f0a500;
+}

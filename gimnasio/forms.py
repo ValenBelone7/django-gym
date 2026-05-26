@@ -5,7 +5,7 @@ from .models import Socio, Membresia
 class SocioForm(forms.ModelForm):
     class Meta:
         model = Socio
-        fields = ['nombre', 'email', 'membresia', 'activo']
+        fields = ['nombre', 'email', 'membresia', 'activo', 'foto']
 
 
 class MembresiaForm(forms.ModelForm):

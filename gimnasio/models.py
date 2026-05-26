@@ -23,6 +23,7 @@ class Socio(models.Model):
     fecha_inscripcion = models.DateField(auto_now_add=True)
     activo = models.BooleanField(default=True)
     membresia = models.ForeignKey(Membresia, on_delete=models.SET_NULL, null=True, blank=True)
+    foto = models.ImageField(upload_to='socios_fotos', null=True, blank=True)
 
     def __str__(self):
         return self.nombre

@@ -28,7 +28,7 @@ def lista_socios(request):
 
 def crear_socio(request):
     if request.method == 'POST':
-        form = SocioForm(request.POST)
+        form = SocioForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('lista_socios')
@@ -40,7 +40,7 @@ def crear_socio(request):
 def editar_socio(request, pk):
     socio = get_object_or_404(Socio, pk=pk)
     if request.method == 'POST':
-        form = SocioForm(request.POST, instance=socio)
+        form = SocioForm(request.POST, request.FILES, instance=socio)
         if form.is_valid():
             form.save()
             return redirect('lista_socios')

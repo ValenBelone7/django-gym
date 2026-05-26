@@ -6,7 +6,7 @@
 <div class="container mt-4">
     <h1>{{ titulo }}</h1>
     
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         
         <div class="mb-3">
@@ -47,6 +47,19 @@
                 <div class="text-danger">
                     {{ form.activo.errors }}
                 </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="{{ form.foto.id_for_label }}" class="form-label">Foto:</label>
+            {{ form.foto }}
+            {% if form.foto.errors %}
+                <div class="text-danger">
+                    {{ form.foto.errors }}
+                </div>
+            {% endif %}
+            {% if form.instance.foto %}
+                <br><img src="{{ form.instance.foto.url }}" width="100">
             {% endif %}
         </div>
         

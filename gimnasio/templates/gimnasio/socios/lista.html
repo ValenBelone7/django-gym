@@ -14,6 +14,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>Foto</th>
                     <th>Nombre</th>
                     <th>Email</th>
                     <th>Membresía</th>
@@ -25,6 +26,13 @@
             <tbody>
                 {% for socio in socios %}
                 <tr>
+                    <td>
+                        {% if socio.foto %}
+                            <img src="{{ socio.foto.url }}" width="50">
+                        {% else %}
+                            —
+                        {% endif %}
+                    </td>
                     <td>{{ socio.nombre }}</td>
                     <td>{{ socio.email }}</td>
                     <td>{{ socio.membresia|default:"Sin membresía" }}</td>
