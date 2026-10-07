@@ -1,7 +1,27 @@
-# Crear .gitignore
-echo "__pycache__/
-*.pyc
-db.sqlite3
-.env
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Entornos virtuales
 venv/
-*.egg-info/" > .gitignore
+.venv/
+django-venv/
+*-venv/
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Otros
+node_modules/
+.vscode/
+.idea/
+.DS_Store
